@@ -1,0 +1,111 @@
+{
+  "run_id": "20260320-1855-2d_sound_v0.5",
+  "notebook": "train/2d-cnn/notebooks/2d_sound_v0.5.ipynb",
+  "input_mode": "normalized_plus_mask",
+  "machine_filter": "pump",
+  "final_metrics": {
+    "final_train_loss": 0.2853662861718072,
+    "final_val_loss_from_epoch": 0.25008295183587403,
+    "eval_train_loss": 0.2796938080754545,
+    "eval_val_loss": 0.25008295183587403,
+    "final_train_accuracy": 0.8902777777777777,
+    "final_val_accuracy": 0.8986111111111111,
+    "pred_normal_count": 341,
+    "pred_abnormal_count": 379,
+    "pred_normal_prop": 0.4736111111111111,
+    "pred_abnormal_prop": 0.5263888888888889,
+    "normal_recall": 0.8722222222222222,
+    "abnormal_recall": 0.925,
+    "collapse_detected": false,
+    "best_epoch": 104,
+    "best_val_loss": 0.2350869383249018,
+    "best_clip_acc": 0.875,
+    "clip_aggregation_method": "probability_mean",
+    "clip_count": 40,
+    "clip_accuracy": 0.875,
+    "clip_pred_normal_count": 17,
+    "clip_pred_abnormal_count": 23,
+    "clip_pred_normal_prop": 0.425,
+    "clip_pred_abnormal_prop": 0.575,
+    "clip_accuracy_probability_mean": 0.875,
+    "clip_accuracy_majority_vote": 0.925
+  },
+  "confusion_matrix": [
+    [
+      314,
+      46
+    ],
+    [
+      27,
+      333
+    ]
+  ],
+  "classification_report": {
+    "normal": {
+      "precision": 0.9208211143695014,
+      "recall": 0.8722222222222222,
+      "f1-score": 0.8958630527817404,
+      "support": 360.0
+    },
+    "abnormal": {
+      "precision": 0.8786279683377308,
+      "recall": 0.925,
+      "f1-score": 0.9012178619756428,
+      "support": 360.0
+    },
+    "accuracy": 0.8986111111111111,
+    "macro avg": {
+      "precision": 0.8997245413536161,
+      "recall": 0.8986111111111111,
+      "f1-score": 0.8985404573786916,
+      "support": 720.0
+    },
+    "weighted avg": {
+      "precision": 0.8997245413536161,
+      "recall": 0.8986111111111111,
+      "f1-score": 0.8985404573786917,
+      "support": 720.0
+    }
+  },
+  "clip_aggregation_method": "probability_mean",
+  "clip_confusion_matrix": [
+    [
+      16,
+      4
+    ],
+    [
+      1,
+      19
+    ]
+  ],
+  "clip_classification_report": {
+    "normal": {
+      "precision": 0.9411764705882353,
+      "recall": 0.8,
+      "f1-score": 0.8648648648648649,
+      "support": 20.0
+    },
+    "abnormal": {
+      "precision": 0.8260869565217391,
+      "recall": 0.95,
+      "f1-score": 0.8837209302325582,
+      "support": 20.0
+    },
+    "accuracy": 0.875,
+    "macro avg": {
+      "precision": 0.8836317135549872,
+      "recall": 0.875,
+      "f1-score": 0.8742928975487115,
+      "support": 40.0
+    },
+    "weighted avg": {
+      "precision": 0.8836317135549873,
+      "recall": 0.875,
+      "f1-score": 0.8742928975487114,
+      "support": 40.0
+    }
+  },
+  "clip_summary_csv_path": "models/20260320-1855-2d_sound_v0.5/clip_level_predictions.csv",
+  "clip_summary_json_path": "models/20260320-1855-2d_sound_v0.5/clip_level_predictions.json",
+  "interpretation_category": "C. Pipeline works, meaningful signal emerging"
+}
