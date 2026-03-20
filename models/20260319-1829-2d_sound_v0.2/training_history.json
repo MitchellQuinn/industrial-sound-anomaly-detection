@@ -1,0 +1,123 @@
+{
+  "run_id": "20260319-1829-2d_sound_v0.2",
+  "notebook": "2d_sound_v0.2.ipynb",
+  "input_mode": "normalized_plus_mask",
+  "machine_filter": "pump",
+  "random_seed": 42,
+  "hyperparameters": {
+    "batch_size": 32,
+    "num_epochs_config": 2,
+    "learning_rate": 0.001,
+    "device": "cuda"
+  },
+  "subset_summary": {
+    "selected_normal_clips": 20,
+    "selected_abnormal_clips": 20,
+    "train_normal_clips": 16,
+    "train_abnormal_clips": 16,
+    "val_normal_clips": 4,
+    "val_abnormal_clips": 4,
+    "train_normal_windows": 288,
+    "train_abnormal_windows": 288,
+    "val_normal_windows": 72,
+    "val_abnormal_windows": 72
+  },
+  "history": {
+    "epoch": [
+      1,
+      2
+    ],
+    "train_loss": [
+      0.6966655618614621,
+      0.6936253441704644
+    ],
+    "train_acc": [
+      0.46875,
+      0.5
+    ],
+    "val_loss": [
+      0.6925266053941515,
+      0.6934014956156412
+    ],
+    "val_acc": [
+      0.5,
+      0.5
+    ],
+    "val_pred_normal": [
+      0,
+      0
+    ],
+    "val_pred_abnormal": [
+      144,
+      144
+    ],
+    "val_pred_normal_prop": [
+      0.0,
+      0.0
+    ],
+    "val_pred_abnormal_prop": [
+      1.0,
+      1.0
+    ]
+  },
+  "final_metrics": {
+    "final_train_loss": 0.6936253441704644,
+    "final_val_loss_from_epoch": 0.6934014956156412,
+    "eval_train_loss": 0.6935021844175127,
+    "eval_val_loss": 0.6934014956156412,
+    "final_train_accuracy": 0.5,
+    "final_val_accuracy": 0.5,
+    "pred_normal_count": 0,
+    "pred_abnormal_count": 144,
+    "pred_normal_prop": 0.0,
+    "pred_abnormal_prop": 1.0
+  },
+  "confusion_matrix": [
+    [
+      0,
+      72
+    ],
+    [
+      0,
+      72
+    ]
+  ],
+  "classification_report": {
+    "normal": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 72.0
+    },
+    "abnormal": {
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1-score": 0.6666666666666666,
+      "support": 72.0
+    },
+    "accuracy": 0.5,
+    "macro avg": {
+      "precision": 0.25,
+      "recall": 0.5,
+      "f1-score": 0.3333333333333333,
+      "support": 144.0
+    },
+    "weighted avg": {
+      "precision": 0.25,
+      "recall": 0.5,
+      "f1-score": 0.3333333333333333,
+      "support": 144.0
+    }
+  },
+  "interpretation_category": "A. Pipeline works, model still collapses",
+  "checklist": {
+    "larger subset built": true,
+    "clip-level split applied": true,
+    "training completed": true,
+    "diagnostics printed": true,
+    "prediction distribution computed": true,
+    "confusion matrix generated": true,
+    "history plots generated": true,
+    "model artifacts saved": false
+  }
+}

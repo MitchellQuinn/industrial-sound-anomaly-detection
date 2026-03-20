@@ -1,0 +1,39 @@
+# Training / raw data
+*.wav
+*.npz
+training-data/
+
+# Python artifacts
+*.pyc
+__pycache__/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model binaries
+*.pt
+*.pth
+*.ckpt
+
+# Generated inspection outputs
+preprocessing/02.preprocessing-display/output/
+
+# Logs / outputs
+logs/
+runs/
+outputs/
+checkpoints/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Organisation
+.archive/
