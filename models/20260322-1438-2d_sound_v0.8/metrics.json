@@ -1,0 +1,114 @@
+{
+  "run_id": "20260322-1438-2d_sound_v0.8",
+  "notebook": "train/2d-cnn/notebooks/2d_sound_v0.8.ipynb",
+  "input_mode": "normalized_plus_mask",
+  "machine_filter": "pump",
+  "final_metrics": {
+    "final_train_loss": 0.1576572762513957,
+    "final_val_loss_from_epoch": 1.0193048684887533,
+    "eval_train_loss": 0.15245011680196344,
+    "eval_val_loss": 1.0193048684887533,
+    "final_train_accuracy": 0.9413300112712819,
+    "final_val_accuracy": 0.6388361796331435,
+    "pred_normal_count": 2454,
+    "pred_abnormal_count": 7032,
+    "pred_normal_prop": 0.25869702719797594,
+    "pred_abnormal_prop": 0.7413029728020241,
+    "normal_recall": 0.36082474226804123,
+    "abnormal_recall": 0.8008008008008008,
+    "collapse_detected": false,
+    "best_epoch": 1,
+    "best_val_loss": 0.721640729936613,
+    "best_clip_acc": 0.5844402277039848,
+    "best_clip_auc": 0.6100275533265224,
+    "clip_aggregation_method": "probability_mean",
+    "clip_count": 527,
+    "clip_accuracy": 0.6470588235294118,
+    "clip_auc": 0.6757066344695211,
+    "clip_auc_warning": null,
+    "clip_pred_normal_count": 126,
+    "clip_pred_abnormal_count": 401,
+    "clip_pred_normal_prop": 0.23908918406072105,
+    "clip_pred_abnormal_prop": 0.7609108159392789,
+    "clip_accuracy_probability_mean": 0.6470588235294118,
+    "clip_accuracy_majority_vote": 0.6451612903225806
+  },
+  "confusion_matrix": [
+    [
+      1260,
+      2232
+    ],
+    [
+      1194,
+      4800
+    ]
+  ],
+  "classification_report": {
+    "normal": {
+      "precision": 0.5134474327628362,
+      "recall": 0.36082474226804123,
+      "f1-score": 0.4238143289606458,
+      "support": 3492.0
+    },
+    "abnormal": {
+      "precision": 0.6825938566552902,
+      "recall": 0.8008008008008008,
+      "f1-score": 0.7369875633348687,
+      "support": 5994.0
+    },
+    "accuracy": 0.6388361796331435,
+    "macro avg": {
+      "precision": 0.5980206447090632,
+      "recall": 0.580812771534421,
+      "f1-score": 0.5804009461477573,
+      "support": 9486.0
+    },
+    "weighted avg": {
+      "precision": 0.6203274311616733,
+      "recall": 0.6388361796331435,
+      "f1-score": 0.6217017806620048,
+      "support": 9486.0
+    }
+  },
+  "clip_aggregation_method": "probability_mean",
+  "clip_confusion_matrix": [
+    [
+      67,
+      127
+    ],
+    [
+      59,
+      274
+    ]
+  ],
+  "clip_classification_report": {
+    "normal": {
+      "precision": 0.5317460317460317,
+      "recall": 0.34536082474226804,
+      "f1-score": 0.41875,
+      "support": 194.0
+    },
+    "abnormal": {
+      "precision": 0.683291770573566,
+      "recall": 0.8228228228228228,
+      "f1-score": 0.7465940054495913,
+      "support": 333.0
+    },
+    "accuracy": 0.6470588235294118,
+    "macro avg": {
+      "precision": 0.6075189011597989,
+      "recall": 0.5840918237825454,
+      "f1-score": 0.5826720027247957,
+      "support": 527.0
+    },
+    "weighted avg": {
+      "precision": 0.6275045346484396,
+      "recall": 0.6470588235294118,
+      "f1-score": 0.6259075973713737,
+      "support": 527.0
+    }
+  },
+  "clip_summary_csv_path": "models/20260322-1438-2d_sound_v0.8/clip_level_predictions.csv",
+  "clip_summary_json_path": "models/20260322-1438-2d_sound_v0.8/clip_level_predictions.json",
+  "interpretation_category": "B. Pipeline works, weak but nontrivial signal"
+}
