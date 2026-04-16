@@ -1,0 +1,277 @@
+{
+  "run_id": "20260323-1659-2d_sound_v0.8",
+  "notebook": "train/2d-cnn/notebooks/2d_sound_v0.8.ipynb",
+  "input_mode": "normalized_plus_mask",
+  "machine_filter": "pump",
+  "random_seed": 42,
+  "window_manifest_paths": [
+    "training-data/pump/shards/20260322_131954_pump_npz_shards_v0.1/manifests/shard_windows.parquet"
+  ],
+  "clip_manifest_paths": [],
+  "preprocessing_config_paths": [],
+  "hyperparameters": {
+    "batch_size": 32,
+    "num_epochs_config": 4,
+    "learning_rate": 0.0005,
+    "device": "cuda",
+    "val_fraction": 0.2,
+    "deterministic_training": true,
+    "clip_aggregation_method": "probability_mean",
+    "split_strategy": "unit_holdout",
+    "unit_holdout_ids_config": null,
+    "auto_select_holdout_units": true,
+    "num_holdout_units": 1,
+    "require_balanced_unit_holdout": true,
+    "resolved_holdout_unit_ids": [
+      "02"
+    ]
+  },
+  "subset_summary": {
+    "selected_normal_clips": 1200,
+    "selected_abnormal_clips": 1200,
+    "train_normal_clips": 1006,
+    "train_abnormal_clips": 867,
+    "val_normal_clips": 194,
+    "val_abnormal_clips": 333,
+    "train_normal_windows": 18108,
+    "train_abnormal_windows": 15606,
+    "val_normal_windows": 3492,
+    "val_abnormal_windows": 5994,
+    "selected_unit_ids": [
+      "00",
+      "02",
+      "04",
+      "06"
+    ],
+    "train_unit_ids": [
+      "00",
+      "04",
+      "06"
+    ],
+    "val_unit_ids": [
+      "02"
+    ]
+  },
+  "split_artifact_path": "models/20260323-1659-2d_sound_v0.8/split_membership.csv",
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "train_loss": [
+      0.5623404768930887,
+      0.3590749389961421,
+      0.2991416260989923,
+      0.2611156075091423
+    ],
+    "train_acc": [
+      0.690959245417334,
+      0.8494987245654624,
+      0.8832235866405648,
+      0.8985288010915347
+    ],
+    "val_loss": [
+      0.721640729936613,
+      0.794061912468051,
+      0.8592352929828498,
+      0.9099195237487199
+    ],
+    "val_acc": [
+      0.5780096985030572,
+      0.611954459203036,
+      0.622180054817626,
+      0.6197554290533418
+    ],
+    "val_pred_normal": [
+      3961,
+      3175,
+      2596,
+      3301
+    ],
+    "val_pred_abnormal": [
+      5525,
+      6311,
+      6890,
+      6185
+    ],
+    "val_pred_normal_prop": [
+      0.4175627240143369,
+      0.33470377398271134,
+      0.27366645582964366,
+      0.3479865064305292
+    ],
+    "val_pred_abnormal_prop": [
+      0.5824372759856631,
+      0.6652962260172887,
+      0.7263335441703563,
+      0.6520134935694708
+    ],
+    "clip_count": [
+      527,
+      527,
+      527,
+      527
+    ],
+    "clip_acc": [
+      0.5844402277039848,
+      0.6242884250474383,
+      0.6242884250474383,
+      0.618595825426945
+    ],
+    "clip_auc": [
+      0.6100275533265224,
+      0.6442524999226029,
+      0.6574254667038172,
+      0.6521934305439461
+    ],
+    "clip_pred_normal": [
+      219,
+      178,
+      148,
+      181
+    ],
+    "clip_pred_abnormal": [
+      308,
+      349,
+      379,
+      346
+    ],
+    "clip_pred_normal_prop": [
+      0.4155597722960152,
+      0.3377609108159393,
+      0.2808349146110057,
+      0.34345351043643263
+    ],
+    "clip_pred_abnormal_prop": [
+      0.5844402277039848,
+      0.6622390891840607,
+      0.7191650853889943,
+      0.6565464895635673
+    ]
+  },
+  "final_metrics": {
+    "final_train_loss": 0.2611156075091423,
+    "final_val_loss_from_epoch": 0.9099195237487199,
+    "eval_train_loss": 0.2434357515568127,
+    "eval_val_loss": 0.9099195237487199,
+    "final_train_accuracy": 0.8985288010915347,
+    "final_val_accuracy": 0.6197554290533418,
+    "pred_normal_count": 3301,
+    "pred_abnormal_count": 6185,
+    "pred_normal_prop": 0.3479865064305292,
+    "pred_abnormal_prop": 0.6520134935694708,
+    "normal_recall": 0.45618556701030927,
+    "abnormal_recall": 0.7150483817150484,
+    "collapse_detected": false,
+    "best_epoch": 1,
+    "best_val_loss": 0.721640729936613,
+    "best_clip_acc": 0.5844402277039848,
+    "best_clip_auc": 0.6100275533265224,
+    "clip_aggregation_method": "probability_mean",
+    "clip_count": 527,
+    "clip_accuracy": 0.618595825426945,
+    "clip_auc": 0.6521934305439461,
+    "clip_auc_warning": null,
+    "clip_pred_normal_count": 181,
+    "clip_pred_abnormal_count": 346,
+    "clip_pred_normal_prop": 0.34345351043643263,
+    "clip_pred_abnormal_prop": 0.6565464895635673,
+    "clip_accuracy_probability_mean": 0.618595825426945,
+    "clip_accuracy_majority_vote": 0.6242884250474383
+  },
+  "confusion_matrix": [
+    [
+      1593,
+      1899
+    ],
+    [
+      1708,
+      4286
+    ]
+  ],
+  "classification_report": {
+    "normal": {
+      "precision": 0.4825810360496819,
+      "recall": 0.45618556701030927,
+      "f1-score": 0.4690122184601796,
+      "support": 3492.0
+    },
+    "abnormal": {
+      "precision": 0.6929668552950687,
+      "recall": 0.7150483817150484,
+      "f1-score": 0.7038344691682404,
+      "support": 5994.0
+    },
+    "accuracy": 0.6197554290533418,
+    "macro avg": {
+      "precision": 0.5877739456723753,
+      "recall": 0.5856169743626788,
+      "f1-score": 0.58642334381421,
+      "support": 9486.0
+    },
+    "weighted avg": {
+      "precision": 0.6155193241117574,
+      "recall": 0.6197554290533418,
+      "f1-score": 0.617391363594495,
+      "support": 9486.0
+    }
+  },
+  "clip_confusion_matrix": [
+    [
+      87,
+      107
+    ],
+    [
+      94,
+      239
+    ]
+  ],
+  "clip_classification_report": {
+    "normal": {
+      "precision": 0.48066298342541436,
+      "recall": 0.4484536082474227,
+      "f1-score": 0.464,
+      "support": 194.0
+    },
+    "abnormal": {
+      "precision": 0.6907514450867052,
+      "recall": 0.7177177177177178,
+      "f1-score": 0.7039764359351989,
+      "support": 333.0
+    },
+    "accuracy": 0.618595825426945,
+    "macro avg": {
+      "precision": 0.5857072142560598,
+      "recall": 0.5830856629825703,
+      "f1-score": 0.5839882179675995,
+      "support": 527.0
+    },
+    "weighted avg": {
+      "precision": 0.6134133776060782,
+      "recall": 0.618595825426945,
+      "f1-score": 0.6156359642626589,
+      "support": 527.0
+    }
+  },
+  "clip_summary_csv_path": "models/20260323-1659-2d_sound_v0.8/clip_level_predictions.csv",
+  "clip_summary_json_path": "models/20260323-1659-2d_sound_v0.8/clip_level_predictions.json",
+  "interpretation_category": "B. Pipeline works, weak but nontrivial signal",
+  "checklist": {
+    "manifests loaded": true,
+    "clip-level split applied": true,
+    "split diagnostics printed": true,
+    "dataset loader works": true,
+    "training completed": true,
+    "prediction distribution computed": true,
+    "confusion matrix generated": true,
+    "clip-level metrics computed": true,
+    "history plots generated": true,
+    "split membership saved": true,
+    "metrics artifact saved": true,
+    "clip-level artifacts saved": true,
+    "run manifest saved": false,
+    "model artifacts saved": false
+  }
+}

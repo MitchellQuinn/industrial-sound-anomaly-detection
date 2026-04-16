@@ -1,0 +1,114 @@
+{
+  "run_id": "20260323-1653-2d_sound_v0.8",
+  "notebook": "train/2d-cnn/notebooks/2d_sound_v0.8.ipynb",
+  "input_mode": "normalized_plus_mask",
+  "machine_filter": "pump",
+  "final_metrics": {
+    "final_train_loss": 0.6901651262148331,
+    "final_val_loss_from_epoch": 0.6741428870130081,
+    "eval_train_loss": 0.6745732963901676,
+    "eval_val_loss": 0.6741428870130081,
+    "final_train_accuracy": 0.5213089802130898,
+    "final_val_accuracy": 0.6043956043956044,
+    "pred_normal_count": 2762,
+    "pred_abnormal_count": 514,
+    "pred_normal_prop": 0.8431013431013431,
+    "pred_abnormal_prop": 0.1568986568986569,
+    "normal_recall": 0.9474969474969475,
+    "abnormal_recall": 0.2612942612942613,
+    "collapse_detected": false,
+    "best_epoch": 4,
+    "best_val_loss": 0.6741428870130081,
+    "best_clip_acc": 0.6153846153846154,
+    "best_clip_auc": 0.6791450307933824,
+    "clip_aggregation_method": "probability_mean",
+    "clip_count": 182,
+    "clip_accuracy": 0.6153846153846154,
+    "clip_auc": 0.6791450307933824,
+    "clip_auc_warning": null,
+    "clip_pred_normal_count": 153,
+    "clip_pred_abnormal_count": 29,
+    "clip_pred_normal_prop": 0.8406593406593407,
+    "clip_pred_abnormal_prop": 0.15934065934065933,
+    "clip_accuracy_probability_mean": 0.6153846153846154,
+    "clip_accuracy_majority_vote": 0.6098901098901099
+  },
+  "confusion_matrix": [
+    [
+      1552,
+      86
+    ],
+    [
+      1210,
+      428
+    ]
+  ],
+  "classification_report": {
+    "normal": {
+      "precision": 0.5619116582186822,
+      "recall": 0.9474969474969475,
+      "f1-score": 0.7054545454545454,
+      "support": 1638.0
+    },
+    "abnormal": {
+      "precision": 0.8326848249027238,
+      "recall": 0.2612942612942613,
+      "f1-score": 0.39776951672862454,
+      "support": 1638.0
+    },
+    "accuracy": 0.6043956043956044,
+    "macro avg": {
+      "precision": 0.697298241560703,
+      "recall": 0.6043956043956044,
+      "f1-score": 0.551612031091585,
+      "support": 3276.0
+    },
+    "weighted avg": {
+      "precision": 0.6972982415607031,
+      "recall": 0.6043956043956044,
+      "f1-score": 0.551612031091585,
+      "support": 3276.0
+    }
+  },
+  "clip_aggregation_method": "probability_mean",
+  "clip_confusion_matrix": [
+    [
+      87,
+      4
+    ],
+    [
+      66,
+      25
+    ]
+  ],
+  "clip_classification_report": {
+    "normal": {
+      "precision": 0.5686274509803921,
+      "recall": 0.9560439560439561,
+      "f1-score": 0.7131147540983607,
+      "support": 91.0
+    },
+    "abnormal": {
+      "precision": 0.8620689655172413,
+      "recall": 0.27472527472527475,
+      "f1-score": 0.4166666666666667,
+      "support": 91.0
+    },
+    "accuracy": 0.6153846153846154,
+    "macro avg": {
+      "precision": 0.7153482082488167,
+      "recall": 0.6153846153846154,
+      "f1-score": 0.5648907103825137,
+      "support": 182.0
+    },
+    "weighted avg": {
+      "precision": 0.7153482082488167,
+      "recall": 0.6153846153846154,
+      "f1-score": 0.5648907103825137,
+      "support": 182.0
+    }
+  },
+  "clip_summary_csv_path": "models/20260323-1653-2d_sound_v0.8/clip_level_predictions.csv",
+  "clip_summary_json_path": "models/20260323-1653-2d_sound_v0.8/clip_level_predictions.json",
+  "interpretation_category": "B. Pipeline works, weak but nontrivial signal"
+}

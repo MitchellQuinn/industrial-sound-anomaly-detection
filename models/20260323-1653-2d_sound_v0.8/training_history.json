@@ -1,0 +1,286 @@
+{
+  "run_id": "20260323-1653-2d_sound_v0.8",
+  "notebook": "train/2d-cnn/notebooks/2d_sound_v0.8.ipynb",
+  "input_mode": "normalized_plus_mask",
+  "machine_filter": "pump",
+  "random_seed": 42,
+  "window_manifest_paths": [
+    "preprocessing/03.training-export/output/manifests/20260319_152022_windows.parquet",
+    "preprocessing/03.training-export/output/manifests/20260319_155015_windows.parquet"
+  ],
+  "clip_manifest_paths": [
+    "preprocessing/03.training-export/output/manifests/20260319_152022_files.parquet",
+    "preprocessing/03.training-export/output/manifests/20260319_155015_files.parquet"
+  ],
+  "preprocessing_config_paths": [
+    "preprocessing/03.training-export/output/manifests/20260319_152022_config.json",
+    "preprocessing/03.training-export/output/manifests/20260319_155015_config.json"
+  ],
+  "hyperparameters": {
+    "batch_size": 32,
+    "num_epochs_config": 4,
+    "learning_rate": 0.0005,
+    "device": "cuda",
+    "val_fraction": 0.2,
+    "deterministic_training": true,
+    "clip_aggregation_method": "probability_mean",
+    "split_strategy": "clip_random",
+    "unit_holdout_ids_config": null,
+    "auto_select_holdout_units": true,
+    "num_holdout_units": 1,
+    "require_balanced_unit_holdout": true,
+    "resolved_holdout_unit_ids": []
+  },
+  "subset_summary": {
+    "selected_normal_clips": 456,
+    "selected_abnormal_clips": 456,
+    "train_normal_clips": 365,
+    "train_abnormal_clips": 365,
+    "val_normal_clips": 91,
+    "val_abnormal_clips": 91,
+    "train_normal_windows": 6570,
+    "train_abnormal_windows": 6570,
+    "val_normal_windows": 1638,
+    "val_abnormal_windows": 1638,
+    "selected_unit_ids": [
+      "00",
+      "02",
+      "04",
+      "06"
+    ],
+    "train_unit_ids": [
+      "00",
+      "02",
+      "04",
+      "06"
+    ],
+    "val_unit_ids": [
+      "00",
+      "02",
+      "04",
+      "06"
+    ]
+  },
+  "split_artifact_path": "models/20260323-1653-2d_sound_v0.8/split_membership.csv",
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "train_loss": [
+      0.6934538866105507,
+      0.6932124223701849,
+      0.6931517842879216,
+      0.6901651262148331
+    ],
+    "train_acc": [
+      0.49231354642313546,
+      0.4980213089802131,
+      0.504337899543379,
+      0.5213089802130898
+    ],
+    "val_loss": [
+      0.6931213168870836,
+      0.6930067622909033,
+      0.6920931472446455,
+      0.6741428870130081
+    ],
+    "val_acc": [
+      0.5,
+      0.5,
+      0.5,
+      0.6043956043956044
+    ],
+    "val_pred_normal": [
+      0,
+      0,
+      0,
+      2762
+    ],
+    "val_pred_abnormal": [
+      3276,
+      3276,
+      3276,
+      514
+    ],
+    "val_pred_normal_prop": [
+      0.0,
+      0.0,
+      0.0,
+      0.8431013431013431
+    ],
+    "val_pred_abnormal_prop": [
+      1.0,
+      1.0,
+      1.0,
+      0.1568986568986569
+    ],
+    "clip_count": [
+      182,
+      182,
+      182,
+      182
+    ],
+    "clip_acc": [
+      0.5,
+      0.5,
+      0.5,
+      0.6153846153846154
+    ],
+    "clip_auc": [
+      0.6534234995773457,
+      0.6879603912570945,
+      0.6680352614418548,
+      0.6791450307933824
+    ],
+    "clip_pred_normal": [
+      0,
+      0,
+      0,
+      153
+    ],
+    "clip_pred_abnormal": [
+      182,
+      182,
+      182,
+      29
+    ],
+    "clip_pred_normal_prop": [
+      0.0,
+      0.0,
+      0.0,
+      0.8406593406593407
+    ],
+    "clip_pred_abnormal_prop": [
+      1.0,
+      1.0,
+      1.0,
+      0.15934065934065933
+    ]
+  },
+  "final_metrics": {
+    "final_train_loss": 0.6901651262148331,
+    "final_val_loss_from_epoch": 0.6741428870130081,
+    "eval_train_loss": 0.6745732963901676,
+    "eval_val_loss": 0.6741428870130081,
+    "final_train_accuracy": 0.5213089802130898,
+    "final_val_accuracy": 0.6043956043956044,
+    "pred_normal_count": 2762,
+    "pred_abnormal_count": 514,
+    "pred_normal_prop": 0.8431013431013431,
+    "pred_abnormal_prop": 0.1568986568986569,
+    "normal_recall": 0.9474969474969475,
+    "abnormal_recall": 0.2612942612942613,
+    "collapse_detected": false,
+    "best_epoch": 4,
+    "best_val_loss": 0.6741428870130081,
+    "best_clip_acc": 0.6153846153846154,
+    "best_clip_auc": 0.6791450307933824,
+    "clip_aggregation_method": "probability_mean",
+    "clip_count": 182,
+    "clip_accuracy": 0.6153846153846154,
+    "clip_auc": 0.6791450307933824,
+    "clip_auc_warning": null,
+    "clip_pred_normal_count": 153,
+    "clip_pred_abnormal_count": 29,
+    "clip_pred_normal_prop": 0.8406593406593407,
+    "clip_pred_abnormal_prop": 0.15934065934065933,
+    "clip_accuracy_probability_mean": 0.6153846153846154,
+    "clip_accuracy_majority_vote": 0.6098901098901099
+  },
+  "confusion_matrix": [
+    [
+      1552,
+      86
+    ],
+    [
+      1210,
+      428
+    ]
+  ],
+  "classification_report": {
+    "normal": {
+      "precision": 0.5619116582186822,
+      "recall": 0.9474969474969475,
+      "f1-score": 0.7054545454545454,
+      "support": 1638.0
+    },
+    "abnormal": {
+      "precision": 0.8326848249027238,
+      "recall": 0.2612942612942613,
+      "f1-score": 0.39776951672862454,
+      "support": 1638.0
+    },
+    "accuracy": 0.6043956043956044,
+    "macro avg": {
+      "precision": 0.697298241560703,
+      "recall": 0.6043956043956044,
+      "f1-score": 0.551612031091585,
+      "support": 3276.0
+    },
+    "weighted avg": {
+      "precision": 0.6972982415607031,
+      "recall": 0.6043956043956044,
+      "f1-score": 0.551612031091585,
+      "support": 3276.0
+    }
+  },
+  "clip_confusion_matrix": [
+    [
+      87,
+      4
+    ],
+    [
+      66,
+      25
+    ]
+  ],
+  "clip_classification_report": {
+    "normal": {
+      "precision": 0.5686274509803921,
+      "recall": 0.9560439560439561,
+      "f1-score": 0.7131147540983607,
+      "support": 91.0
+    },
+    "abnormal": {
+      "precision": 0.8620689655172413,
+      "recall": 0.27472527472527475,
+      "f1-score": 0.4166666666666667,
+      "support": 91.0
+    },
+    "accuracy": 0.6153846153846154,
+    "macro avg": {
+      "precision": 0.7153482082488167,
+      "recall": 0.6153846153846154,
+      "f1-score": 0.5648907103825137,
+      "support": 182.0
+    },
+    "weighted avg": {
+      "precision": 0.7153482082488167,
+      "recall": 0.6153846153846154,
+      "f1-score": 0.5648907103825137,
+      "support": 182.0
+    }
+  },
+  "clip_summary_csv_path": "models/20260323-1653-2d_sound_v0.8/clip_level_predictions.csv",
+  "clip_summary_json_path": "models/20260323-1653-2d_sound_v0.8/clip_level_predictions.json",
+  "interpretation_category": "B. Pipeline works, weak but nontrivial signal",
+  "checklist": {
+    "manifests loaded": true,
+    "clip-level split applied": true,
+    "split diagnostics printed": true,
+    "dataset loader works": true,
+    "training completed": true,
+    "prediction distribution computed": true,
+    "confusion matrix generated": true,
+    "clip-level metrics computed": true,
+    "history plots generated": true,
+    "split membership saved": true,
+    "metrics artifact saved": true,
+    "clip-level artifacts saved": true,
+    "run manifest saved": false,
+    "model artifacts saved": false
+  }
+}

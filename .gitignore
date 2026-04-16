@@ -20,6 +20,18 @@ env/
 *.pth
 *.ckpt
 
+# Keep the models timeline visible, but ignore generated artifacts by default.
+# Dated run directories can stay in Git with lightweight narrative/metrics files.
+models/**
+!models/
+!models/**/
+!models/**/.gitkeep
+!models/**/README.md
+!models/**/model_card.md
+!models/**/run_manifest.json
+!models/**/metrics.json
+!models/**/training_history.json
+
 # Generated inspection outputs
 preprocessing/02.preprocessing-display/output/
 
