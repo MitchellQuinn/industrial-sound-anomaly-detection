@@ -34,6 +34,7 @@ models/**
 
 # Generated inspection outputs
 preprocessing/02.preprocessing-display/output/
+preprocessing/03.training-export/output/manifests/
 
 # Logs / outputs
 logs/

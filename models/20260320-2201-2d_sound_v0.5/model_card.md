@@ -14,9 +14,9 @@
 - Labels: `normal=0`, `abnormal=1`
 
 ## Inputs
-- Window manifests: `preprocessing/03.training-export/output/manifests/20260319_152022_windows.parquet, preprocessing/03.training-export/output/manifests/20260319_155015_windows.parquet`
-- Clip manifests: `preprocessing/03.training-export/output/manifests/20260319_152022_files.parquet, preprocessing/03.training-export/output/manifests/20260319_155015_files.parquet`
-- Preprocessing configs: `preprocessing/03.training-export/output/manifests/20260319_152022_config.json, preprocessing/03.training-export/output/manifests/20260319_155015_config.json`
+- Window manifests (local-only, intentionally excluded from Git): `preprocessing/03.training-export/output/manifests/20260319_152022_windows.parquet, preprocessing/03.training-export/output/manifests/20260319_155015_windows.parquet`
+- Clip manifests (local-only, intentionally excluded from Git): `preprocessing/03.training-export/output/manifests/20260319_152022_files.parquet, preprocessing/03.training-export/output/manifests/20260319_155015_files.parquet`
+- Preprocessing configs (local-only, intentionally excluded from Git): `preprocessing/03.training-export/output/manifests/20260319_152022_config.json, preprocessing/03.training-export/output/manifests/20260319_155015_config.json`
 - Base representation: `normalized_window` shape `(96, 64)` and `active_mask` shape `(96, 64)`
 - Input mode: `normalized_plus_mask`
 - Final tensor shape: `(2, 96, 64)`
@@ -28,7 +28,7 @@
 - Validation clips: normal=91, abnormal=91
 - Train windows: normal=6570, abnormal=6570
 - Validation windows: normal=1638, abnormal=1638
-- Exact split membership: `models/20260320-2201-2d_sound_v0.5/split_membership.csv`
+- Exact split membership (local-only, intentionally excluded from Git): `models/20260320-2201-2d_sound_v0.5/split_membership.csv`
 
 ## Training
 - Epochs configured: 256
@@ -53,13 +53,13 @@
 
 ## Artifact Tracking
 - Git-tracked artifacts:
-  - `models/20260320-2201-2d_sound_v0.5/training_history.json`
   - `models/20260320-2201-2d_sound_v0.5/metrics.json`
-  - `models/20260320-2201-2d_sound_v0.5/split_membership.csv`
+  - `models/20260320-2201-2d_sound_v0.5/model_card.md`
+  - `models/20260320-2201-2d_sound_v0.5/run_manifest.json`
+  - `models/20260320-2201-2d_sound_v0.5/training_history.json`
+- Local-only artifacts intentionally excluded from Git by `.gitignore`:
+  - `models/20260320-2201-2d_sound_v0.5/best_val_model_state_dict.pt`
   - `models/20260320-2201-2d_sound_v0.5/clip_level_predictions.csv`
   - `models/20260320-2201-2d_sound_v0.5/clip_level_predictions.json`
-  - `models/20260320-2201-2d_sound_v0.5/run_manifest.json`
-  - `models/20260320-2201-2d_sound_v0.5/model_card.md`
-- Local-only artifacts intentionally excluded from Git by `.gitignore`:
   - `models/20260320-2201-2d_sound_v0.5/final_model_state_dict.pt`
-  - `models/20260320-2201-2d_sound_v0.5/best_val_model_state_dict.pt`
+  - `models/20260320-2201-2d_sound_v0.5/split_membership.csv`

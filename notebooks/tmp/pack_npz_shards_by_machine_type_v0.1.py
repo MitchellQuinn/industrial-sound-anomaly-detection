@@ -8,7 +8,7 @@ import json
 import numpy as np
 import pandas as pd
 
-REPO_ROOT = Path('/home/mitch/development/raccoon-ball')
+REPO_ROOT = Path(__file__).resolve().parents[2]
 TRAINING_DATA_ROOT = REPO_ROOT / 'training-data'
 
 # Set this before each run (examples: 'pump', 'fan', 'slider', 'valve')

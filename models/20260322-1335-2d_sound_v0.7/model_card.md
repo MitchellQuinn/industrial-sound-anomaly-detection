@@ -14,7 +14,7 @@
 - Labels: `normal=0`, `abnormal=1`
 
 ## Inputs
-- Window manifests: `training-data/pump/shards/20260322_131954_pump_npz_shards_v0.1/manifests/shard_windows.parquet`
+- Window manifests (local-only, intentionally excluded from Git): `training-data/pump/shards/20260322_131954_pump_npz_shards_v0.1/manifests/shard_windows.parquet`
 - Clip manifests: `(derived from window manifests)`
 - Preprocessing configs: ``
 - Base representation: `normalized_window` shape `(96, 64)` and `active_mask` shape `(96, 64)`
@@ -28,7 +28,7 @@
 - Validation clips: normal=240, abnormal=240
 - Train windows: normal=17280, abnormal=17280
 - Validation windows: normal=4320, abnormal=4320
-- Exact split membership: `models/20260322-1335-2d_sound_v0.7/split_membership.csv`
+- Exact split membership (local-only, intentionally excluded from Git): `models/20260322-1335-2d_sound_v0.7/split_membership.csv`
 
 ## Training
 - Epochs configured: 16
@@ -54,13 +54,13 @@
 
 ## Artifact Tracking
 - Git-tracked artifacts:
-  - `models/20260322-1335-2d_sound_v0.7/training_history.json`
   - `models/20260322-1335-2d_sound_v0.7/metrics.json`
-  - `models/20260322-1335-2d_sound_v0.7/split_membership.csv`
+  - `models/20260322-1335-2d_sound_v0.7/model_card.md`
+  - `models/20260322-1335-2d_sound_v0.7/run_manifest.json`
+  - `models/20260322-1335-2d_sound_v0.7/training_history.json`
+- Local-only artifacts intentionally excluded from Git by `.gitignore`:
+  - `models/20260322-1335-2d_sound_v0.7/best_val_model_state_dict.pt`
   - `models/20260322-1335-2d_sound_v0.7/clip_level_predictions.csv`
   - `models/20260322-1335-2d_sound_v0.7/clip_level_predictions.json`
-  - `models/20260322-1335-2d_sound_v0.7/run_manifest.json`
-  - `models/20260322-1335-2d_sound_v0.7/model_card.md`
-- Local-only artifacts intentionally excluded from Git by `.gitignore`:
   - `models/20260322-1335-2d_sound_v0.7/final_model_state_dict.pt`
-  - `models/20260322-1335-2d_sound_v0.7/best_val_model_state_dict.pt`
+  - `models/20260322-1335-2d_sound_v0.7/split_membership.csv`

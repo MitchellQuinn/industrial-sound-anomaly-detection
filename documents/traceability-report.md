@@ -1,5 +1,10 @@
 # Traceability, Reproducibility, and Employer-Facing Legibility Audit
 
+> Note: this audit reflects an internal pre-release review state. References to
+> tracked export manifest snapshots, split-membership CSVs, or clip-level
+> prediction exports describe local workflow artifacts that were later removed
+> or redacted for the public GitHub release.
+
 Audit scope: repository contents as currently present in Git plus the current local workspace layout where relevant.
 
 High-level assessment: the repository already shows real rigor in preprocessing and metadata capture, but the strongest provenance is on the export side, not the training side. A technically literate employer would likely conclude that the project is serious and actively structured, but not yet fully trustworthy as a reproducible experiment record because a specific model run cannot be reconstructed from repo-visible artifacts alone.
@@ -24,7 +29,7 @@ High-level assessment: the repository already shows real rigor in preprocessing 
   - confusion matrix and classification report
 - The checked-in model metadata in `models/20260319-1829-2d_sound_v0.2/` is useful portfolio evidence. A reviewer can see the intended model family, task, input representation, seed, batch size, learning rate, and final metrics.
 - The repo does not try to commit obviously huge raw/generated corpora. `.gitignore` excludes `.wav`, `.npz`, `training-data/`, and common run/output directories. That is reasonable and professional for a portfolio-scale ML repo.
-- Method documentation exists and is better than average for a personal ML repository. The voxel-processing specs in `documentation/` make the feature logic legible to a reviewer.
+- Method documentation exists and is better than average for a personal ML repository. The voxel-processing specs in `documents/` make the feature logic legible to a reviewer.
 - Notebook versioning by filename is at least somewhat disciplined. Files like `2d_sound_v0.1.ipynb`, `2d_sound_v0.2.ipynb`, `2d_sound_v0.3.ipynb` and corresponding preprocessing notebook versions show iteration rather than silent overwrites.
 
 ## B. Current weaknesses / gaps
@@ -61,7 +66,7 @@ High-level assessment: the repository already shows real rigor in preprocessing 
 - The export manifests do not include explicit semantic fields like `machine`, `label`, `db_level`, or a stable `clip_id`.
   - The training notebook compensates by inferring labels and machine type from filenames and path text.
   - That is fragile and not ideal scientific metadata.
-- Most paths in configs/manifests are absolute local-machine paths such as `/home/mitch/development/raccoon-ball/...`.
+- Most paths in configs/manifests are absolute local-machine paths such as `/abs/path/to/repo/...`.
   - This hurts portability.
   - It also makes the metadata feel tied to one workstation instead of repo-native.
 - It is not clearly documented which artifacts are canonical metadata and which are bulky derived data.
@@ -242,24 +247,24 @@ Recommended `README.md` structure:
 
 ### Repo-facing documents to add
 
-- `documentation/repo-overview.md`
+- `documents/repo-overview.md`
   - one-page orientation for a cold reviewer
-- `documentation/data-pipeline.md`
+- `documents/data-pipeline.md`
   - raw audio -> preprocessing -> tensor export -> manifests -> training
-- `documentation/data-catalog.md`
+- `documents/data-catalog.md`
   - corpus slices, naming scheme, labels, dB conditions, and what is excluded from Git
-- `documentation/run-manifest-schema.md`
+- `documents/run-manifest-schema.md`
   - the exact schema expected in each training run folder
-- `documentation/reproducibility.md`
+- `documents/reproducibility.md`
   - what can be reproduced from Git alone, what requires local data, and how to regenerate derived corpora
-- `documentation/notebook-generation-standards.md`
+- `documents/notebook-generation-standards.md`
   - standards for notebook config cells, metadata capture, path handling, output hygiene, and artifact writing
-- `documentation/experiment-log.md`
+- `documents/experiment-log.md`
   - human-readable run ledger with brief “what changed / why” notes
 
 ### Employer-facing summary artifacts
 
-- A small run index, either `documentation/experiment-log.md` or `results/run-index.csv`, with one row per experiment:
+- A small run index, either `documents/experiment-log.md` or `results/run-index.csv`, with one row per experiment:
   - run ID
   - date
   - notebook/entrypoint
@@ -270,7 +275,7 @@ Recommended `README.md` structure:
   - short rationale
 - A representative `model_card.md` that links back to the exact run manifest and split artifact.
 - One clearly marked “best current baseline” summary artifact.
-  - This could be `documentation/current-baseline.md`.
+  - This could be `documents/current-baseline.md`.
   - A hiring manager should not have to guess which run matters most.
 
 ### What this improves
@@ -284,12 +289,12 @@ Recommended `README.md` structure:
 
 ### Files to add
 
-- `documentation/data-pipeline.md`
-- `documentation/data-catalog.md`
-- `documentation/reproducibility.md`
-- `documentation/run-manifest-schema.md`
-- `documentation/notebook-generation-standards.md`
-- `documentation/experiment-log.md`
+- `documents/data-pipeline.md`
+- `documents/data-catalog.md`
+- `documents/reproducibility.md`
+- `documents/run-manifest-schema.md`
+- `documents/notebook-generation-standards.md`
+- `documents/experiment-log.md`
 - `models/README.md`
   - explain run folder conventions and what is and is not committed
 

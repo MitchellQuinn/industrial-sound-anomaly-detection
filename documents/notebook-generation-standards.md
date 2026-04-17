@@ -11,6 +11,13 @@ The goal is not to eliminate notebooks. The goal is to make notebook-based work:
 - legible to a technical reviewer or potential employer
 - maintainable by one person without heavyweight MLOps infrastructure
 
+For local development, this standard prefers exact split membership and rich
+intermediate metadata capture. For the public portfolio release, some
+dataset-derived artifacts may be summarized, redacted, or excluded from Git
+when redistribution or attribution constraints apply. In those cases, the
+public repo should still retain enough tracked metadata to explain the run and
+its headline results.
+
 These standards apply to new notebooks and to major revisions of existing notebooks in:
 
 - `preprocessing/`
@@ -208,7 +215,7 @@ Allowed:
 
 Not preferred as the only saved reference:
 
-- `/home/mitch/development/raccoon-ball/...`
+- `/abs/path/to/repo/...`
 
 Absolute paths may still be useful at runtime, but canonical saved metadata should include repo-relative paths.
 
@@ -393,7 +400,9 @@ Minimum required artifacts:
 - `run_manifest.json`
 - `training_history.json`
 - `metrics.json`
-- `split_membership.csv` or `split_membership.parquet`
+- `split_membership.csv` or `split_membership.parquet` for the local canonical
+  run record, or a public-safe redacted equivalent documented in
+  `run_manifest.json` and `model_card.md`
 - `model_card.md`
 
 Optional local-only artifacts:
@@ -562,7 +571,8 @@ Examples:
 - model cards
 - run manifests
 - metrics files
-- split membership files
+- split membership files when redistribution allows, otherwise public-safe
+  redacted summaries
 - method documentation
 
 ### 12.2 What should usually not be tracked
@@ -587,13 +597,9 @@ If a file is committed, a reviewer should be able to tell why it belongs in the 
   "entrypoint_type": "notebook",
   "entrypoint_path": "train/2d-cnn/notebooks/2d_sound_v0.2.ipynb",
   "source_manifest_paths": [
-    "preprocessing/03.training-export/output/manifests/20260319_152022_windows.parquet",
-    "preprocessing/03.training-export/output/manifests/20260319_155015_windows.parquet"
+    "training-data/pump/shards/20260322_131954_pump_npz_shards_v0.1/manifests/shard_windows.parquet"
   ],
-  "preprocessing_config_paths": [
-    "preprocessing/03.training-export/output/manifests/20260319_152022_config.json",
-    "preprocessing/03.training-export/output/manifests/20260319_155015_config.json"
-  ],
+  "preprocessing_config_paths": [],
   "model_name": "Baseline2DCNN",
   "optimizer": "Adam",
   "hyperparameters": {
@@ -608,7 +614,7 @@ If a file is committed, a reviewer should be able to tell why it belongs in the 
   "artifact_paths": {
     "training_history": "models/<run_id>/training_history.json",
     "metrics": "models/<run_id>/metrics.json",
-    "split_membership": "models/<run_id>/split_membership.csv",
+    "split_membership_local_only": "models/<run_id>/split_membership.csv",
     "model_card": "models/<run_id>/model_card.md"
   }
 }
@@ -638,7 +644,8 @@ These rules should be applied first to the notebooks already acting as canonical
 
 Priority implementation order:
 
-1. Add `run_manifest.json` and `split_membership.csv` to training notebooks.
+1. Add `run_manifest.json` and local split-membership capture to training
+   notebooks, with public-safe redaction when needed.
 2. Add semantic metadata fields to export manifests.
 3. Convert saved metadata to include repo-relative canonical paths.
 4. Standardize final verdict cells and artifact writeout sections.

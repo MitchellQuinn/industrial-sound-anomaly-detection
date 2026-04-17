@@ -2266,8 +2266,9 @@ run_manifest = {
         'machine_filter': machine_filter,
         'selected_normal_clips': int(len(selected_normal_df)),
         'selected_abnormal_clips': int(len(selected_abnormal_df)),
-        'train_clip_ids': sorted([str(x) for x in train_clip_ids]),
-        'val_clip_ids': sorted([str(x) for x in val_clip_ids]),
+        'train_clip_count': len(train_clip_ids),
+        'val_clip_count': len(val_clip_ids),
+        'clip_id_lists_redacted': True,
         'split_artifact_path': repo_rel(SPLIT_MEMBERSHIP_PATH),
         'split_strategy': split_strategy,
         'resolved_holdout_unit_ids': resolved_holdout_unit_ids,
@@ -2335,9 +2336,9 @@ model_card = f"""# Model Card (Brief)
 - Labels: `normal=0`, `abnormal=1`
 
 ## Inputs
-- Window manifests: `{', '.join(repo_rel(p) for p in window_manifest_paths)}`
+- Window manifests (local-only, intentionally excluded from Git): `{', '.join(repo_rel(p) for p in window_manifest_paths)}`
 - Clip manifests: `{', '.join(repo_rel(p) for p in clip_manifest_paths) if clip_manifest_paths else '(derived from window manifests)'}`
-- Preprocessing configs: `{', '.join(repo_rel(p) for p in preprocessing_config_paths)}`
+- Preprocessing configs (local-only, intentionally excluded from Git): `{', '.join(repo_rel(p) for p in preprocessing_config_paths)}`
 - Base representation: `normalized_window` shape `(96, 64)` and `active_mask` shape `(96, 64)`
 - Input mode: `{input_mode}`
 - Final tensor shape: `(2, 96, 64)`
@@ -2349,7 +2350,7 @@ model_card = f"""# Model Card (Brief)
 - Validation clips: normal={val_normal_clips}, abnormal={val_abnormal_clips}
 - Train windows: normal={train_normal_windows}, abnormal={train_abnormal_windows}
 - Validation windows: normal={val_normal_windows}, abnormal={val_abnormal_windows}
-- Exact split membership: `{repo_rel(SPLIT_MEMBERSHIP_PATH)}`
+- Exact split membership (local-only, intentionally excluded from Git): `{repo_rel(SPLIT_MEMBERSHIP_PATH)}`
 - Split strategy: `{split_strategy}`
 - Holdout units (resolved): `{resolved_holdout_unit_ids}`
 - Train unit ids: `{train_unit_ids}`
@@ -2381,19 +2382,19 @@ model_card = f"""# Model Card (Brief)
 - Git-tracked artifacts:
   - `{repo_rel(TRAINING_HISTORY_JSON_PATH)}`
   - `{repo_rel(METRICS_JSON_PATH)}`
-  - `{repo_rel(SPLIT_MEMBERSHIP_PATH)}`
-  - `{repo_rel(CLIP_LEVEL_SUMMARY_CSV_PATH)}`
-  - `{repo_rel(CLIP_LEVEL_SUMMARY_JSON_PATH)}`
   - `{repo_rel(RUN_MANIFEST_JSON_PATH)}`
   - `{repo_rel(MODEL_CARD_PATH)}`
 - Local-only artifacts intentionally excluded from Git by `.gitignore`:
+  - `{repo_rel(SPLIT_MEMBERSHIP_PATH)}`
+  - `{repo_rel(CLIP_LEVEL_SUMMARY_CSV_PATH)}`
+  - `{repo_rel(CLIP_LEVEL_SUMMARY_JSON_PATH)}`
   - `{repo_rel(FINAL_MODEL_PATH) if save_local_checkpoints else 'not written'}`
   - `{repo_rel(BEST_MODEL_PATH) if save_local_checkpoints else 'not written'}`
 """
 MODEL_CARD_PATH.write_text(model_card)
 CHECKS['model artifacts saved'] = True
 
-print('Saved tracked artifacts to:', repo_rel(MODEL_OUTPUT_DIR))
+print('Saved run metadata to:', repo_rel(MODEL_OUTPUT_DIR))
 print(' -', repo_rel(TRAINING_HISTORY_JSON_PATH))
 print(' -', repo_rel(METRICS_JSON_PATH))
 print(' -', repo_rel(SPLIT_MEMBERSHIP_PATH))
