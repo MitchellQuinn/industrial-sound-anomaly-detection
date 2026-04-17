@@ -2,7 +2,7 @@
 
 ## 1. Summary
 
-The repository appears to have started with preprocessing and representation-inspection work on 2026-03-16, moved into reusable export and tensor-validation work on 2026-03-19, and reached first model training the same day. On 2026-03-20 and 2026-03-21, the project became more structured: git history begins, traceability documentation was added, run manifests and split tracking appeared, and clip-level evaluation was added. On 2026-03-22 and 2026-03-23, the work scaled up through shard-based training and stricter `unit_holdout` testing. A later phase on 2026-04-12 to 2026-04-16 focused on employer/public-facing curation rather than original model-building.
+The repository appears to have started with preprocessing and representation-inspection work on 2026-03-16, appears to have moved into reusable export and tensor-validation work on 2026-03-19, and likely reached first visible model training the same day. On 2026-03-20 and 2026-03-21, the project became more structured: git history begins, traceability documentation was added, run manifests and split tracking appeared, and clip-level evaluation was added. On 2026-03-22 and 2026-03-23, the work scaled up through shard-based training and stricter `unit_holdout` testing. A later phase on 2026-04-12 to 2026-04-16 focused on employer/public-facing curation rather than original model-building.
 
 ## 2. Evidence Sources Used
 
@@ -33,12 +33,12 @@ Notes on source strength:
 
 **Initial audio preprocessing inspection and exploratory voxel work**
 
-- What changed: the earliest visible work is a preprocessing inspection notebook, followed later the same day by archived voxel-inspection notebook versions and CSV outputs.
+- What changed: the earliest visible work appears to be a preprocessing inspection notebook, followed later the same day by archived voxel-inspection notebook versions and CSV outputs.
 - Directly evidenced:
   - `preprocessing/01.preprocessing-display/audio_preprocessing_inspection.ipynb` has a local mtime of `2026-03-16 15:52 UTC`.
   - Local archived notebooks `preprocessing/02.preprocessing-display/.archive/binary_voxel_occupancy_inspection_v0.1.ipynb` through `v0.3.ipynb` have mtimes between `16:38` and `17:19 UTC`.
   - Local CSV outputs in `preprocessing/02.preprocessing-display/output/` were created later that day.
-- Inferred from surrounding artifacts: the project began as hands-on representation inspection before reusable export/training tooling existed.
+- Inferred from surrounding artifacts: this suggests the project began as hands-on representation inspection before reusable export/training tooling existed.
 - Evidence used: local file timestamps, notebook names, output filenames.
 - Confidence level: `medium`
 
@@ -51,7 +51,7 @@ Notes on source strength:
   - `preprocessing/02.preprocessing-display/binary_voxel_occupancy_inspection_v0.4.ipynb` has a local mtime of `2026-03-17 15:06 UTC`.
   - Local comparison outputs such as `20260317_111517_summary_comparison.csv` and `20260317_114214_summary_comparison.csv` carry dated run IDs from 2026-03-17.
   - `documents/binary_voxel_occupancy_inspection_v0.4_algorithm_spec.md` and `documents/binary_voxel_occupancy_inspection_v0.4_surface_processing_spec.md` have local mtimes of `2026-03-18 18:02 UTC` and `18:08 UTC`.
-- Inferred from surrounding artifacts: the preprocessing/representation approach reached a documented method boundary before the training pipeline was built.
+- Inferred from surrounding artifacts: this suggests the preprocessing/representation approach had reached a documented method boundary before the training pipeline was built.
 - Evidence used: file timestamps, dated output filenames, method documents.
 - Confidence level: `medium`
 
@@ -59,12 +59,12 @@ Notes on source strength:
 
 **Reusable export pipeline and tensor validation were added**
 
-- What changed: a Python export module, an export notebook, and tensor-inspection notebooks appeared.
+- What changed: a Python export module, an export notebook, and tensor-inspection notebooks appear by this point.
 - Directly evidenced:
   - `preprocessing/03.training-export/export_2d_training_v0.3.ipynb` has a local mtime of `2026-03-19 11:11 UTC`.
   - `preprocessing/export_2d_training.py` has a local mtime of `2026-03-19 12:38 UTC`.
   - `preprocessing/04.tensor-inspection/tensor-inspection-v0.1.ipynb` and `tensor-inspection-v0.2.ipynb` have local mtimes of `12:07 UTC` and `13:02 UTC`.
-- Inferred from surrounding artifacts: this marks the transition from exploratory inspection to reusable train-data generation and validation.
+- Inferred from surrounding artifacts: this likely marks the transition from exploratory inspection to reusable train-data generation and validation.
 - Evidence used: file timestamps, notebook/script names.
 - Confidence level: `medium`
 
@@ -85,12 +85,12 @@ Notes on source strength:
 
 **First training notebooks and first model run appeared**
 
-- What changed: the first `2d_sound` training notebooks were created and the earliest checked-in model run was produced.
+- What changed: the first `2d_sound` training notebooks appear to have been created and the earliest checked-in model run appears to have been produced.
 - Directly evidenced:
   - `train/2d-cnn/notebooks/2d_sound_v0.1.ipynb` and `2d_sound_v0.2.ipynb` have local mtimes of `17:24 UTC` and `18:28 UTC`.
   - `models/20260319-1829-2d_sound_v0.2/model_card.md` and `training_history.json` have local mtimes of `18:29 UTC`.
   - The model card records a small 40-clip experiment, 2 configured/completed epochs, and a collapsed `0.5000` validation result.
-- Inferred from surrounding artifacts: the export-to-training path was functioning on the same day the export manifests were created.
+- Inferred from surrounding artifacts: this suggests the export-to-training path was functioning on the same day the export manifests were created.
 - Evidence used: notebook mtimes, model card, training history.
 - Confidence level: `high`
 
@@ -125,12 +125,12 @@ Notes on source strength:
 
 **Evaluation notebooks and data-organisation utilities were added**
 
-- What changed: evaluation-only notebooks were added, evaluation outputs were generated against the best `v0.5` checkpoint, and utility notebooks were added for WAV renaming and directory restructuring.
+- What changed: evaluation-only notebooks were added, evaluation outputs appear to have been generated against the best `v0.5` checkpoint, and utility notebooks were added for WAV renaming and directory restructuring.
 - Directly evidenced:
   - Commit `041efd8` on `2026-03-21 16:28 UTC` adds `evaluation/eval_mimii_baseline_comparison_v0.1.ipynb`, `v0.2.ipynb`, and `train/2d-cnn/notebooks/2d_sound_v0.6.ipynb`.
   - Local evaluation outputs in `evaluation/outputs/20260321-133844-mimii-eval/` and `20260321-134108-mimii-eval/` record `saved_at_utc` timestamps and point to checkpoint `models/20260320-2201-2d_sound_v0.5/best_val_model_state_dict.pt`.
   - Commits `8c9aea3` and `53bf173` add `rename_training_wavs_v0.2.ipynb` and `copy_machine_wavs_to_pump_structure_v0.1.ipynb`.
-- Inferred from surrounding artifacts: between the larger `v0.5` runs and the later scale-up work, part of the effort shifted to benchmarking and cleaning/standardising input layout.
+- Inferred from surrounding artifacts: between the larger `v0.5` runs and the later scale-up work, the evidence is consistent with part of the effort shifting to benchmarking and cleaning/standardising input layout.
 - Evidence used: git commits, notebook mtimes, local evaluation outputs.
 - Confidence level: `high` for notebook/commit additions, `medium` for the broader interpretation
 
@@ -138,7 +138,7 @@ Notes on source strength:
 
 **Shard-based scale-up and stronger generalization testing**
 
-- What changed: the project added scaling/efficiency utilities, created a shard manifest, ran the larger `2d_sound_v0.7` experiment, and then tested `unit_holdout` generalization in `v0.8`.
+- What changed: the project added scaling/efficiency utilities, likely created a shard manifest, ran the larger `2d_sound_v0.7` experiment, and then tested `unit_holdout` generalization in `v0.8`.
 - Directly evidenced:
   - Commit `2a4257b` on `2026-03-22 13:10 UTC`: "Training data creation and efficiency improvements".
   - `utilities/compare_dataset_combo_totals_v0.1.ipynb` and `utilities/pack_npz_shards_by_machine_type_v0.1.ipynb` have local mtimes of `11:02 UTC` and `13:20 UTC`.
@@ -152,7 +152,7 @@ Notes on source strength:
 
 **New export/training notebook revisions and rapid `v0.8` reruns**
 
-- What changed: a new export notebook and a new `v0.8` training notebook were committed; later that day, four additional `v0.8` runs were saved covering both `clip_random` and `unit_holdout`, and both original-manifest and shard-backed data paths.
+- What changed: a new export notebook and a new `v0.8` training notebook were committed; later that day, four additional `v0.8` runs appear to have been saved covering both `clip_random` and `unit_holdout`, and both original-manifest and shard-backed data paths.
 - Directly evidenced:
   - Commit `5d2c667` on `2026-03-23 15:56 UTC` adds `preprocessing/03.training-export/export_2d_training_v0.5.ipynb`, `train/2d-cnn/notebooks/2d_sound_v0.8.ipynb`, exported tmp scripts under `notebooks/tmp/`, and the 2026-03-22 model folders.
   - Model folders `20260323-1630-2d_sound_v0.8`, `1653`, `1656`, and `1659` have local run timestamps between `16:30 UTC` and `16:59 UTC`.
@@ -165,7 +165,7 @@ Notes on source strength:
 
 **Employer-facing writeup and public-release curation**
 
-- What changed: the repository gained an employer-oriented technical writeup and then a public-release cleanup pass that preserved lightweight run history while removing bulkier generated artifacts from git.
+- What changed: the repository appears to have gained an employer-oriented technical writeup and then a public-release cleanup pass that preserved lightweight run history while removing bulkier generated artifacts from git.
 - Directly evidenced:
   - `documents/employment-technical-writeup.md` has a local mtime of `2026-04-12 14:39 BST`.
   - Commit `e229b5d` on `2026-04-16 10:46 BST` says "Prepare repository for public GitHub release".
@@ -218,3 +218,13 @@ Notes on source strength:
 ### Overall assessment
 
 The “sub-week build” claim is well supported if it refers to the core technical build reaching scaled training/evaluation by 2026-03-22. It is moderately supported if it refers to most of the March technical work but excludes later public-release curation. It is not well supported if it is meant to cover the entire visible repository arc through the 2026-03-23 reruns and the 2026-04-16 release-prep commit.
+
+## 7. Safe Claims / Confidence Summary
+
+- Strongly supported by git + artifacts: by `2026-03-20`, the repository already contained preprocessing notebooks, export manifests, early training notebooks, and model metadata; from `2026-03-20` to `2026-03-23`, the addition of traceability docs, run manifests, evaluation notebooks, scale-up utilities, and later training runs is directly visible in commits plus tracked model artifacts.
+- Supported mainly by local file timestamps / surrounding evidence: the pre-git sequence from `2026-03-16` through early `2026-03-19` appears consistent with notebook mtimes, dated output filenames, and adjacent artifacts, but is not commit-backed step by step.
+- Strength of the “sub-week build” claim: strong if bounded to the core technical build reaching scaled training/evaluation by `2026-03-22`; moderate if extended through most March reruns; weak if stretched to the full visible repository arc or later release/publication curation.
+
+## 8. Closing Note on Purpose
+
+This timeline exists to improve repository legibility, keep historical claims bounded to evidence that is actually visible in git and local artifacts, and provide a clean base for later employer-facing or public-facing adaptation.
