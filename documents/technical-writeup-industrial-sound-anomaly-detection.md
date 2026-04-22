@@ -1,6 +1,6 @@
 # Technical Writeup - MIMII Industrial Sound Anomaly Detection Repository
 
-## Public Repository Scope
+# Public Repository Scope
 
 This repository is a public, employer-facing portfolio artifact rather than a full training package. It intentionally excludes:
 
