@@ -1,6 +1,8 @@
 # Training / raw data
 *.wav
 *.npz
+*.parquet
+datasets/
 training-data/
 
 # Python artifacts
@@ -34,7 +36,7 @@ models/**
 
 # Generated inspection outputs
 preprocessing/02.preprocessing-display/output/
-preprocessing/03.training-export/output/manifests/
+preprocessing/03.training-export/output/
 
 # Logs / outputs
 logs/
